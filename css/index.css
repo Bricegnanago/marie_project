@@ -1,0 +1,31 @@
+.wrapper{
+    width: 990px;
+    margin: 30px auto;
+    background-color: rgba(255, 255, 255, 1);
+    
+}
+
+body{
+    background-attachment: fixed;
+    /* background-image: url(../img/back2.jpg); */
+    background-color: #edeff0;
+    background-size: cover;
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+}
+
+
+.my_dark{
+    /* background-color: #1e1e1e!important; */
+    background-color: #d63a3a!important;
+}
+
+.radius {
+    border-radius: 4px!important;
+}
+.boxshadow{
+    border-radius: 10px;
+}
+#mention{
+    display: none;
+}
