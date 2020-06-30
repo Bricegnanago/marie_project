@@ -340,7 +340,7 @@
       labels: {
         search: 'Chercher ici...'
       },      
-    });    
+    });     
     $(document).ready(function() {
       // $('#heureDeNaissance').mdtimepicker({
       //   timeFormat: 'hh:mm:ss.000', // format of the time value (data-time attribute)
