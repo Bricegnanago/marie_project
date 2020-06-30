@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    $("#next").click(function(){        
+        event.preventDefault();
+    });
+    // $("#previous").click(function(){        
+    //     event.preventDefault();
+    // });
+    // $("#validator").click(function(){
+    //     // event.preventDefault();
+    // })
     $("#next").click(function(){
         $(this).hide();
         $("#mention").show(1000);
@@ -13,7 +22,7 @@ $(document).ready(function () {
         $("#next").show(1000);
     });
     
-    $( "#formId" ).delegate( "*", "focus blur", function() {
+    $( "#formId" ).delegate( "*", "focus blur", function() {      
         var elem = $( this );
         setTimeout(function() {
           elem.toggleClass( "shadow", elem.is( ":focus" ) );

@@ -29,3 +29,10 @@ body{
 #mention{
     display: none;
 }
+.input_bac{
+    background-color: #e70f0f;
+    color:white
+}
+.input_bac::placeholder{    
+    color:white
+}
