@@ -26,8 +26,12 @@ body{
 .boxshadow{
     border-radius: 10px;
 }
+
+#personnal {
+    transition-duration: 4s;
+}
 #mention{
-    display: none;
+    display: none;      
 }
 .input_bac{
     background-color: #e70f0f;
@@ -35,4 +39,14 @@ body{
 }
 .input_bac::placeholder{    
     color:white
+}
+
+.show {
+    display: block;
+}
+.position_submit_icon{
+    position: absolute;
+    left: 60px;
+    top: 37px;
+    z-index: 300;
 }

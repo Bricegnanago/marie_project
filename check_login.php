@@ -21,6 +21,16 @@ $identitePere = '';
 $professionPere = '';
 $identiteMere = '';
 $professionMere = '';
+$nationalitePere = '';
+$nationaliteMere = '';
+$dateMariage = '';
+$lieuMariage = '';
+$nomConjoint = '';
+$dateDivorce = '';
+$dateDeces = '';
+$lieuDeces = '';
+$identiteAgent = '';
+$matriculeAgent = '';
 
 $error_sexe = ''; //ok
 $error_numero = ''; //ok
@@ -35,6 +45,16 @@ $error_identitePere = ''; //ok
 $error_professionPere = '';
 $error_identiteMere = '';
 $error_professionMere = '';
+$error_nationalitePere = '';
+$error_nationaliteMere = '';
+$error_dateMariage = '';
+$error_lieuMariage = '';
+$error_nomConjoint = '';
+$error_dateDivorce = '';
+$error_dateDeces = '';
+$error_lieuDeces = '';
+$error_identiteAgent = '';
+$error_matriculeAgent = '';
 $error = 0;
 
 $output = array();
@@ -125,7 +145,72 @@ if (empty($_POST["professionMere"])) {
 	$professionMere = $_POST["professionMere"];
 }
 
+if (isset($_POST["nationalitePere"]) || empty($_POST["nationalitePere"])) {
+	$error_nationalitePere = "Veuillez renseigner la nationalité du père!";
+	$error++;
+} else {
+	$nationalitePere = $_POST["nationalitePere"];
+}
 
+if (empty($_POST["nationaliteMere"])) {
+	$error_nationaliteMere = "Veuillez renseigner la nationalité de la mère!";
+	$error++;
+} else {
+	$nationaliteMere = $_POST["nationaliteMere"];
+}
+if (empty($_POST["dateMariage"])) {
+	$error_dateMariage = "Veuillez renseigner la date du mariage!";
+	$error++;
+} else {
+	$dateMariage = $_POST["dateMariage"];
+}
+if (empty($_POST["lieuMariage"])) {
+	$error_lieuMariage = "Veuillez renseigner le lieu du mariage!";
+	$error++;
+} else {
+	$lieuMariage = $_POST["lieuMariage"];
+}
+
+if (empty($_POST["nomConjoint"])) {
+	$error_nomConjoint = "Veuillez renseigner le nom du conjoint!";
+	$error++;
+} else {
+	$nomConjoint = $_POST["nomConjoint"];
+}
+
+if (empty($_POST["dateDivorce"])) {
+	$error_dateDivorce = "Veuillez renseigner la date de divorce!";
+	$error++;
+} else {
+	$dateDivorce = $_POST["dateDivorce"];
+}
+if (empty($_POST["dateDeces"])) {
+	$error_dateDeces = "Veuillez renseigner la date de décès!";
+	$error++;
+} else {
+	$dateDeces = $_POST["dateDeces"];
+}
+
+if (empty($_POST["lieuDeces"])) {
+	$error_lieuDeces = "Veuillez renseigner le lieu de décès!";
+	$error++;
+} else {
+	$lieuDeces = $_POST["lieuDeces"];
+}
+
+if (empty($_POST["identiteAgent"])) {
+	$error_identiteAgent = "Veuillez renseigner l'identité de l'agent!";
+	$error++;
+} else {
+	$identiteAgent = $_POST["identiteAgent"];
+}
+
+if (empty($_POST["matriculeAgent"])) {
+	$error_matriculeAgent = "Veuillez renseigner le matricule de l'agent!";
+	$error++;
+} else {
+	$matriculeAgent = $_POST["matriculeAgent"];
+}
 
 if ($error == 0) {
 	$query = "
@@ -151,12 +236,22 @@ if ($error == 0) {
 				':identitePere' => $_POST['identitePere'],
 				':professionPere' => $_POST['professionPere'],
 				':identiteMere' => $_POST['identiteMere'],
-				':professionMere' => $_POST['professionMere']
+				':professionMere' => $_POST['professionMere'],
+				':nationalitePere' => $_POST['nationalitePere'],
+				':nationaliteMere' => $_POST['nationaliteMere'],
+				'dateMariage' => $_POST['dateMariage'],
+				'lieuMariage' => $_POST['lieuMariage'],
+				'nomConjoint' => $_POST['nomConjoint'],
+				'dateDivorce' => $_POST['dateDivorce'],
+				'dateDeces' => $_POST['dateDeces'],
+				'lieuDeces' => $_POST['lieuDeces'],
+				'identiteAgent' => $_POST['identiteAgent'],
+				'matriculeAgent' => $_POST['matriculeAgent'],
 			);
 
 
-			$sql = 'INSERT INTO personne(personne_id, numero, nom, prenom, genre, dateDeNaissance, heureDeNaissance, lieuDeNaissance, lieuDeclaration, dateDeclaration, identitePere, professionPere, identiteMere, professionMere) 
-										VALUES(NULL, :numero, :nom, :prenom, :genre, :dateDeNaissance, :heureDeNaissance, :lieuDeNaissance, :lieuDeclaration, :dateDeclaration, :identitePere, :professionPere, :identiteMere, :professionMere)';
+			$sql = 'INSERT INTO personne(personne_id, numero, nom, prenom, genre, dateDeNaissance, heureDeNaissance, lieuDeNaissance, lieuDeclaration, dateDeclaration, identitePere, professionPere, identiteMere, professionMere, nationalitePere, nationaliteMere, dateMariage, lieuMariage, nomConjoint, dateDivorce, dateDeces, lieuDeces, identiteAgent, matriculeAgent) 
+										VALUES(NULL, :numero, :nom, :prenom, :genre, :dateDeNaissance, :heureDeNaissance, :lieuDeNaissance, :lieuDeclaration, :dateDeclaration, :identitePere, :professionPere, :identiteMere, :professionMere,  :nationalitePere, :nationaliteMere, :dateMariage, :lieuMariage, :nomConjoint, :dateDivorce, :dateDeces, :lieuDeces, :identiteAgent, :matriculeAgent)';
 
 			$statement2 = $connect->prepare($sql);
 			$statement2->execute($data);
@@ -186,6 +281,16 @@ if ($error > 0) {
 		'error_professionPere' => $error_professionPere,
 		'error_identiteMere' => $error_identiteMere,
 		'error_professionMere' => $error_professionMere,
+		'error_nationalitePere' => $error_nationalitePere,
+		'error_nationaliteMere' => $error_nationaliteMere,
+		'error_dateMariage' => $error_dateMariage,
+		'error_lieuMariage' => $error_lieuMariage,
+		'error_nomConjoint' => $error_nomConjoint,
+		'error_dateDivorce' => $error_dateDivorce,
+		'error_dateDeces' => $error_dateDeces,
+		'error_lieuDeces' => $error_lieuDeces,
+		'error_identiteAgent' => $error_identiteAgent,
+		'error_matriculeAgent' => $error_matriculeAgent,
 	);
 	// echo "Sexe : ".$_POST["sexe"]."\n";
 } else {
@@ -203,6 +308,16 @@ if ($error > 0) {
 		'professionPere' => $professionPere,
 		'identiteMere' => $identiteMere,
 		'professionMere' => $professionMere,
+		'nationalitePere' => $nationalitePere,
+		'nationaliteMere' => $nationaliteMere,
+		'dateMariage' => $dateMariage,
+		'lieuMariage' => $lieuMariage,
+		'nomConjoint' => $nomConjoint,
+		'dateDivorce' => $dateDivorce,
+		'dateDeces' => $dateDeces,
+		'lieuDeces' => $lieuDeces,
+		'identiteAgent' => $identiteAgent,
+		'matriculeAgent' => $matriculeAgent,
 	);
 }
 

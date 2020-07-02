@@ -24,6 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link href="css/fm.selectator.jquery.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./css/modules/animations-extended.min.css">
 
 
 </head>
@@ -56,7 +57,7 @@
           <!-- Numéro -->
           <div id="success_message"></div>
           <div class="row">
-            <section id="personnal" style="widows: 100%;">
+            <section id="personnal" style="widows: 100%; ">
               <div class="row">
                 <div class="col-md-6 col-12 mb-4">
                   <input type="text" id="numero" name="numero" class="form-control  " placeholder="Numéro">
@@ -79,13 +80,13 @@
 
                 <!-- Sexe -->
                 <div class="col-12 col-md-6  mb-4">
-                  <div class="row flex-lg-fill m-auto">                    
+                  <div class="row flex-lg-fill m-auto">
                     <div class="custom-control custom-radio">
                       <input type="radio" class="custom-control-input" id="homme" name="genre" value="M" checked>
-                      <label class="custom-control-label" for="homme">Homme</label>&nbsp;&nbsp;&nbsp;                                                              
+                      <label class="custom-control-label" for="homme">Homme</label>&nbsp;&nbsp;&nbsp;
                     </div>
                     <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="femme" name="genre" value="F">
+                      <input type="radio" class="custom-control-input" id="femme" name="genre" value="F">
                       <label class="custom-control-label" for="femme">Femme</label>&nbsp;&nbsp;&nbsp;
                     </div>
                   </div>
@@ -111,13 +112,13 @@
 
                 <!-- Date de Naissance -->
                 <div class="col-md-6 col-12 mb-4">
-                  <input type="date"  id="dateDeNaissance" name="dateDeNaissance" class="form-control" id="datepicker" placeholder="Date de naissance">
+                  <input type="date" id="dateDeNaissance" name="dateDeNaissance" class="form-control" id="datepicker" placeholder="Date de naissance">
                   <span class="text-danger" id="error_dateDeNaissance"></span>
                 </div>
                 <!-- FIN Date de Naissance -->
                 <!-- heure de naissance -->
                 <div class="col-md-6 col-12 mb-4">
-                  <input type="time"  id="heureDeNaissance" name="heureDeNaissance" class="form-control  " placeholder="Heure de naissance" title="Heure de naissance">
+                  <input type="time" id="heureDeNaissance" name="heureDeNaissance" class="form-control  " placeholder="Heure de naissance" title="Heure de naissance">
                   <span class="text-danger" id="error_heureDeNaissance"></span>
                 </div>
 
@@ -130,7 +131,7 @@
                 </div> -->
                 <div class="col-md-6 col-12 mb-4">
                   <input type="text" id="lieuDeclaration" class="form-control" name="lieuDeclaration" placeholder="Lieu de Declaration">
-                  <span class="text-danger" id="error_lieuDeclaration" ></span>
+                  <span class="text-danger" id="error_lieuDeclaration"></span>
                 </div>
                 <!-- <div class="col-md-6 col-12">
                 </div> -->
@@ -147,8 +148,8 @@
                 <!-- identité du père -->
 
                 <div class="col-md-6 col-12 mb-4">
-                  <input type="text" id="identitePere" class="form-control" name="identitePere" placeholder="Identité du père">                  
-                  <span class="text-danger" id="error_identitePere" ></span>
+                  <input type="text" id="identitePere" class="form-control" name="identitePere" placeholder="Identité du père">
+                  <span class="text-danger" id="error_identitePere"></span>
                 </div>
                 <div class="col-md-6 col-12 mb-4">
                   <input type="file" id="pieceIdentitePere" class="form-control" name="pieceIdentitePere" placeholder="Piece jonte">
@@ -160,6 +161,8 @@
                 </div>
                 <div class="col-md-6 col-12 mb-4">
                   <select class="browser-default custom-select" id="nationalitePere" name="nationalitePere">
+                    <option value="" data-left="">Choisir une nationalité du père
+                    </option>
                     <option value="Afrique du sud" data-left="./img/pays/afrique_du_sud.png">Afrique du sud
                     </option>
                     <option value="Algérie" data-left="img/pays/algerie.png">
@@ -189,11 +192,12 @@
                     <option value="Guinée" data-left="img/pays/guinee.png">Guinée</option>
                     <option value="Guinée-Bissau" data-left="img/pays/guinee_bissau.png">Guinée-Bissau</option>
                   </select>
+                  <span class="text-danger" id="error_nationalitePere"></span>
                 </div>
 
                 <div class="col-md-6 col-12 mb-4">
                   <input type="text" id="identiteMere" name="identiteMere" class="form-control" placeholder="Identité de la mère">
-                  <span class="text-danger" id="error_identiteMere"></span>                  
+                  <span class="text-danger" id="error_identiteMere"></span>
 
                 </div>
                 <div class="col-md-6 col-12 mb-4">
@@ -202,98 +206,109 @@
 
                 <div class="col-md-6 col-12 mb-4">
                   <input type="text" id="professionMere" class="form-control" name="professionMere" placeholder="Profession mère">
-                  <span class="text-danger" id="error_professionMere"></span>                  
+                  <span class="text-danger" id="error_professionMere"></span>
                 </div>
                 <div class="col-md-6 col-12 mb-4">
                   <select class="browser-default custom-select" id="nationaliteMere" name="nationaliteMere">
-                    <option selected value="">Nationalité Mère</option>
+                    <option value="" data-left="">Choisir une nationalité de la mère
+                    </option>
                     <option value="2" data-left="./img/pays/afrique_du_sud.png">Afrique du sud
                     </option>
                     <option value="3" data-left="img/pays/algerie.png">
                       Algérie</option>
-                    <option value="4" data-left="img/pays/angola.png">Angola</option>
-                    <option value="5" data-left="img/pays/benin.png">Benin</option>
-                    <option value="5" data-left="img/pays/burandi.png">Burandi</option>
-                    <option value="5" data-left="img/pays/botswana.png">Botswana</option>
-                    <option value="5" data-left="img/pays/burkina_faso.png">Burkina Faso</option>
-                    <option value="5" data-left="img/pays/burundi.png">Burundi</option>
-                    <option value="5" data-left="img/pays/cameroon.png">Cameroun</option>
-                    <option value="5" data-left="img/pays/cap_vert.png">Cap Vert</option>
-                    <option value="5" data-left="img/pays/central_african_republic.webp">Republique centrafricaine
+                    <option value="Angola" data-left="img/pays/angola.png">Angola</option>
+                    <option value="Benin" data-left="img/pays/benin.png">Benin</option>
+                    <option value="Burandi" data-left="img/pays/burandi.png">Burandi</option>
+                    <option value="Botswana" data-left="img/pays/botswana.png">Botswana</option>
+                    <option value="Burkina Faso" data-left="img/pays/burkina_faso.png">Burkina Faso</option>
+                    <option value="Burundi" data-left="img/pays/burundi.png">Burundi</option>
+                    <option value="Cameroun" data-left="img/pays/cameroon.png">Cameroun</option>
+                    <option value="Cap Vert" data-left="img/pays/cap_vert.png">Cap Vert</option>
+                    <option value="Republique centrafricaine" data-left="img/pays/central_african_republic.webp">Republique centrafricaine
                     </option>
-                    <option value="4" data-left="img/pays/comores.png">Comores</option>
-                    <option value="5" data-left="img/pays/republique_du_congo.png">Republique du congo</option>
-                    <option value="5" data-left="img/pays/republique_democratique_du_congo.png">Republique Démocratique
+                    <option value="Comores" data-left="img/pays/comores.png">Comores</option>
+                    <option value="Republique du congo" data-left="img/pays/republique_du_congo.png">Republique du congo</option>
+                    <option value="Republique Démocratique du congo" data-left="img/pays/republique_democratique_du_congo.png">Republique Démocratique
                       du congo</option>
-                    <option value="4" data-left="img/pays/cote_dIvoire.png">Côte d'Ivoire</option>
-                    <option value="5" data-left="img/pays/benin.png">Djibouti</option>
-                    <option value="5" data-left="img/pays/egypte.png">Egypte</option>
-                    <option value="5" data-left="img/pays/eritrea.webp">Érythrée</option>
-                    <option value="5" data-left="img/pays/ethiopie.png">Éthiopie</option>
-                    <option value="5" data-left="img/pays/gabon.png">Gabon</option>
-                    <option value="5" data-left="img/pays/gambie.png">Gambie</option>
-                    <option value="5" data-left="img/pays/Ghana.png">Ghana</option>
-                    <option value="5" data-left="img/pays/guinee.png">Guinée</option>
-                    <option value="5" data-left="img/pays/guinee_bissau.png">Guinée-Bissau</option>
+                    <option value="Côte d'Ivoire" data-left="img/pays/cote_dIvoire.png">Côte d'Ivoire</option>
+                    <option value="Djibouti" data-left="img/pays/benin.png">Djibouti</option>
+                    <option value="Egypte" data-left="img/pays/egypte.png">Egypte</option>
+                    <option value="Érythrée" data-left="img/pays/eritrea.webp">Érythrée</option>
+                    <option value="Éthiopie" data-left="img/pays/ethiopie.png">Éthiopie</option>
+                    <option value="Gabon" data-left="img/pays/gabon.png">Gabon</option>
+                    <option value="Gambie" data-left="img/pays/gambie.png">Gambie</option>
+                    <option value="Ghana" data-left="img/pays/Ghana.png">Ghana</option>
+                    <option value="Guinée" data-left="img/pays/guinee.png">Guinée</option>
+                    <option value="Guinée-Bissau" data-left="img/pays/guinee_bissau.png">Guinée-Bissau</option>
                   </select>
+                  <span class="text-danger" id="error_nationaliteMere"></span>
                 </div>
 
-                <div class="col-10 m-auto"> <button class="btn btn-black" id="next">SUIVANT <i class="fas fa-arrow-right"></i>
+                <div class="col-10 m-auto"> <button class="btn btn-info" id="next">Continuer <i class="fas fa-arrow-right"></i>
                   </button></div>
               </div>
 
 
 
             </section>
-            <section id="mention">
+            <section id="mention" class="">
               <div class="row">
-                <div class="col-md-6 col-12">
-                  <input type="text" readonly="readonly" data-select="datepicker" id="dateMariage" class="form-control  " placeholder="Marié(e) le" data-date-format="dd/mm/yyyy">
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="date" id="dateMariage" name="dateMariage" class="form-control" placeholder="Marié(e) le" >
+                  <span class="text-danger" id="error_dateMariage"></span>
                 </div>
-                <div class="col-md-6 col-12">
-                  <input type="text" id="lieuMariage" class="form-control  " placeholder="Lieu de mariage">
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="text" id="lieuMariage" name="lieuMariage" class="form-control"  placeholder="Lieu de mariage">
+                  <span class="text-danger" id="error_lieuMariage"></span>
                 </div>
-                <div class="col-md-6 col-12">
-
-
-                  <input type="text" id="NomConjoint" class="form-control  " placeholder="Conjoint(e)">
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="text" id="nomConjoint" name="nomConjoint" class="form-control" placeholder="Nom et prenoms du Conjoint(e)">
+                  <span class="text-danger" id="error_nomConjoint"></span>                  
                 </div>
-                <div class="col-md-6 col-12">
-                  <input type="file" id="pieceMariage" class="form-control  " placeholder="Pièce Mariage">
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="file" id="pieceMariage" name="pieceMariage" class="form-control" placeholder="Pièce Mariage">
+                  <span class="text-danger" id="error_pieceMariage"></span>
                 </div>
-
-                <div class="col-md-6 col-12">
-                  <input type="text" id="divorceLe" class="form-control  " placeholder="Divorcé le">
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="text" id="dateDivorce" name="dateDivorce" class="form-control" placeholder="Divorcé(e) le">
+                  <span class="text-danger" id="error_dateDivorce"></span>
                 </div>
-                <div class="col-md-6 col-12">
-                  <input type="file" id="pieceDivorce" class="form-control  " placeholder="Piece jonte">
-                </div>
-
-
-                <div class="col-md-6 col-12">
-                  <input type="text" readonly="readonly" data-select="datepicker" id="decedeLe" class="form-control  " placeholder="Décédé le " data-date-format="dd/mm/yyyy">
-                </div>
-                <div class="col-md-6 col-12">
-                  <input type="text" id="lieuDeces" class="form-control  " placeholder="Lieu de decès">
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="file" id="pieceDivorce" name="pieceDivorce" class="form-control" placeholder="Piece jonte">
+                  <span class="text-danger" id="error_pieceDivorce"></span>
                 </div>
 
-                <div class="col-md-6 col-12">
-                  <input type="text" id="identiteAgent" class="form-control  " placeholder="Identité agent état civil">
+
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="text" id="dateDeces" name="dateDeces" class="form-control" placeholder="Décédé le">
+                  <span class="text-danger" id="error_dateDeces"></span>                  
                 </div>
-                <div class="col-md-6 col-12">
-                  <input type="text" id="matriculeAgent" class="form-control  " placeholder="Matricule agent">
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="text" id="lieuDeces" name="lieuDeces" class="form-control" placeholder="Lieu de decès">
+                  <span class="text-danger" id="error_lieuDeces"></span>
+                </div>
+
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="text" id="identiteAgent" name="identiteAgent" class="form-control" placeholder="Identité agent état civil">
+                  <span class="text-danger" id="error_identiteAgent"></span>
+
+                </div>
+                <div class="col-md-6 col-12 mb-4">
+                  <input type="text" id="matriculeAgent" name="matriculeAgent" class="form-control" placeholder="Matricule agent">
+                  <span class="text-danger" id="error_matriculeAgent"></span>
                 </div>
               </div>
-            </section>
-            <div class="validation m-auto flex-center" id="submit" style="display: none;">
-              <div class="row">
-                <div class=""><a class="btn btn-outline-danger btn-block my-4" id="previous"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Précédent</a>
-                </div>&nbsp;&nbsp;&nbsp;
-                <div class="">
-                  <input class="btn btn-success btn-block my-4" name="validator" type="submit" id="validator" value="Enregistrer">
-                </div>
+
+              <div class="validation d-flex mx-auto" id="submit" style="width: 500px;">                              
+                  <div class="flex-fill"><a class="btn btn-danger btn-block my-4" id="previous"><i class="fas fa-arrow-left"></i>&nbsp; Précédent</a>
+                  </div>
+                  <div class="flex-fill " style="position: relative">
+                  <i class="far fa-save position_submit_icon text-white"></i><input class="btn btn-success btn-block my-4" name="validator" type="submit" id="validator" value="Enregistrer">
+                  </div>                                
               </div>
             </div>
+            </section>
+            
           </div>
       </div>
 
@@ -325,6 +340,7 @@
   <script src="./js/script.js"></script>
 
   <script src="./js/fm.selectator.jquery.js"></script>
+  <script src="./js/modules/wow.min.js"></script>
 
 
   <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
@@ -334,14 +350,15 @@
     $('#nationalitePere').selectator({
       labels: {
         search: 'Chercher ici...'
-      },      
+      },
     });
     $('#nationaliteMere').selectator({
       labels: {
         search: 'Chercher ici...'
-      },      
-    });     
+      },
+    });
     $(document).ready(function() {
+      new WOW().init();
       // $('#heureDeNaissance').mdtimepicker({
       //   timeFormat: 'hh:mm:ss.000', // format of the time value (data-time attribute)
       //   format: 'h:mm tt',    // format of the input value
@@ -349,7 +366,7 @@
       //   readOnly: true,       // determines if input is readonly
       //   hourPadding: false    // determines if display value has zero padding for hour value less than 10 (i.e. 05:30 PM); 24-hour format has padding by default
       // });
-    
+
 
       function clear_field() {
         $('#formId')[0].reset();
@@ -408,41 +425,41 @@
               }
 
               if (data.error_prenom != '') {
-                $('#error_prenom').text(data.error_prenom);                
+                $('#error_prenom').text(data.error_prenom);
               } else {
                 $('#error_prenom').text('');
               }
 
               if (data.error_dateDeNaissance != '') {
                 $('#error_dateDeNaissance').text(data.error_dateDeNaissance);
-                
+
               } else {
                 $('#error_dateDeNaissance').text('');
               }
               if (data.error_heureDeNaissance != '') {
-                $('#error_heureDeNaissance').text(data.error_heureDeNaissance);                
+                $('#error_heureDeNaissance').text(data.error_heureDeNaissance);
               } else {
                 $('#error_heureDeNaissance').text('');
               }
               if (data.error_lieuDeNaissance != '') {
-                $('#error_lieuDeNaissance').text(data.error_lieuDeNaissance);                
+                $('#error_lieuDeNaissance').text(data.error_lieuDeNaissance);
               } else {
                 $('#error_lieuDeNaissance').text('');
               }
 
               if (data.error_lieuDeclaration != '') {
-                $('#error_lieuDeclaration').text(data.error_lieuDeclaration);                
+                $('#error_lieuDeclaration').text(data.error_lieuDeclaration);
               } else {
                 $('#error_lieuDeclaration').text('');
               }
 
               if (data.error_dateDeclaration != '') {
-                $('#error_dateDeclaration').text(data.error_dateDeclaration);                
+                $('#error_dateDeclaration').text(data.error_dateDeclaration);
               } else {
                 $('#error_dateDeclaration').text('');
               }
               if (data.error_identitePere != '') {
-                $('#error_identitePere').text(data.error_identitePere);                
+                $('#error_identitePere').text(data.error_identitePere);
               } else {
                 $('#error_identitePere').text('');
               }
@@ -452,7 +469,7 @@
               } else {
                 $('#error_professionPere').text('');
               }
-              
+
               if (data.error_identiteMere != '') {
                 $('#error_identiteMere').text(data.error_identiteMere);
               } else {
@@ -463,7 +480,62 @@
                 $('#error_professionMere').text(data.error_professionMere);
               } else {
                 $('#error_professionMere').text('');
+              }
+              if (data.error_nationalitePere != '') {
+                $('#error_nationalitePere').text(data.error_nationalitePere);
+              } else {
+                $('#error_nationalitePere').text('');
+              }
+              if (data.error_nationaliteMere != '') {
+                $('#error_nationaliteMere').text(data.error_nationaliteMere);
+              } else {
+                $('#error_nationaliteMere').text('');
+              }
+              if (data.error_dateMariage != '') {
+                $('#error_dateMariage').text(data.error_dateMariage);
+              } else {
+                $('#error_dateMariage').text('');
               }              
+              if (data.error_lieuMariage != '') {
+                $('#error_lieuMariage').text(data.error_lieuMariage);
+              } else {
+                $('#error_lieuMariage').text('');
+              }
+
+              if (data.error_nomConjoint != '') {
+                $('#error_nomConjoint').text(data.error_nomConjoint);
+              } else {
+                $('#error_nomConjoint').text('');
+              }
+              if (data.error_dateDivorce != '') {
+                $('#error_dateDivorce').text(data.error_dateDivorce);
+              } else {
+                $('#error_dateDivorce').text('');
+              }
+              if (data.error_dateDeces != '') {
+                $('#error_dateDeces').text(data.error_dateDeces);
+              } else {
+                $('#error_dateDeces').text('');
+              }
+
+              if (data.error_lieuDeces != '') {
+                $('#error_lieuDeces').text(data.error_lieuDeces);
+              } else {
+                $('#error_lieuDeces').text('');
+              }
+
+              if (data.error_identiteAgent != '') {
+                $('#error_identiteAgent').text(data.error_identiteAgent);
+              } else {
+                $('#error_identiteAgent').text('');
+              }
+
+              if (data.error_matriculeAgent != '') {
+                $('#error_matriculeAgent').text(data.error_matriculeAgent);
+              } else {
+                $('#error_matriculeAgent').text('');
+              }
+              
             }
           }
         });
